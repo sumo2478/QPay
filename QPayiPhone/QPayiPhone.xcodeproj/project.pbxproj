@@ -16,6 +16,7 @@
 		8662D3321ACFC9F50076AD2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8662D3301ACFC9F50076AD2E /* LaunchScreen.xib */; };
 		8662D33E1ACFC9F50076AD2E /* QPayiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D33D1ACFC9F50076AD2E /* QPayiPhoneTests.m */; };
 		8662D3481ACFF0DC0076AD2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */; };
+		86BB1A421AD0732D007BEB62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BB1A411AD0732D007BEB62 /* MainViewController.swift */; };
 		A717A9B11AD05FA7008261AD /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B01AD05FA7008261AD /* PaymentModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		8662D33C1ACFC9F50076AD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8662D33D1ACFC9F50076AD2E /* QPayiPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QPayiPhoneTests.m; sourceTree = "<group>"; };
 		8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		86BB1A411AD0732D007BEB62 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A717A9AF1AD05FA6008261AD /* QPayiPhone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QPayiPhone-Bridging-Header.h"; sourceTree = "<group>"; };
 		A717A9B01AD05FA7008261AD /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentModel.swift; path = Models/PaymentModel.swift; sourceTree = "<group>"; };
 		B86A535F0F3A702F2D79885B /* Pods-QPayiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPayiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QPayiPhone/Pods-QPayiPhone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				8662D3301ACFC9F50076AD2E /* LaunchScreen.xib */,
 				8662D3211ACFC9F50076AD2E /* Supporting Files */,
 				A717A9AF1AD05FA6008261AD /* QPayiPhone-Bridging-Header.h */,
+				86BB1A411AD0732D007BEB62 /* MainViewController.swift */,
 			);
 			path = QPayiPhone;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				8662D32A1ACFC9F50076AD2E /* ViewController.m in Sources */,
 				8662D3271ACFC9F50076AD2E /* AppDelegate.m in Sources */,
 				8662D3241ACFC9F50076AD2E /* main.m in Sources */,
+				86BB1A421AD0732D007BEB62 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
