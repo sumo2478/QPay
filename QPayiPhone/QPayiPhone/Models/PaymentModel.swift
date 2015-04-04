@@ -22,4 +22,10 @@ class PaymentModel {
         
         return true;
     }
+    
+    func retrieveDataFromItemId(itemId:String, completionHandler:PFObjectResultBlock) -> Bool {
+        var query = PFQuery(className: "items");
+        query.getObjectInBackgroundWithId(itemId, block: completionHandler);
+        return true;
+    }
 }
