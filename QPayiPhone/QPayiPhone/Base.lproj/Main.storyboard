@@ -27,11 +27,11 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="45"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="140" id="nF5-9o-odN">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="130"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="140"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Scan QR Code">
+                                <state key="normal" title="Login with Venmo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -46,9 +46,6 @@
                                         <include reference="nF5-9o-odN"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="MTM-Qb-61N"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ra-Jl-h3y">
                                 <rect key="frame" x="224" y="179" width="188" height="209"/>
@@ -94,14 +91,14 @@
                             <constraint firstItem="TqE-2Y-BOj" firstAttribute="top" secondItem="SCY-2s-L2i" secondAttribute="bottom" id="Pes-sa-kBO"/>
                             <constraint firstAttribute="trailing" secondItem="SCY-2s-L2i" secondAttribute="trailing" id="R4T-ss-7om"/>
                             <constraint firstItem="4Ra-Jl-h3y" firstAttribute="top" secondItem="cXC-gv-Apj" secondAttribute="bottom" constant="80" id="Ul7-gV-l9k">
-                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                             </constraint>
                             <constraint firstItem="4Ra-Jl-h3y" firstAttribute="top" secondItem="cXC-gv-Apj" secondAttribute="bottom" constant="116" id="YFm-bY-IBl">
                                 <variation key="heightClass=regular-widthClass=compact" constant="90"/>
                             </constraint>
                             <constraint firstItem="SCY-2s-L2i" firstAttribute="top" secondItem="Bsa-be-DeC" secondAttribute="top" id="iRb-tt-SnN"/>
                             <constraint firstItem="map-QN-HVB" firstAttribute="top" secondItem="4Ra-Jl-h3y" secondAttribute="bottom" constant="8" id="o87-Cz-pbq">
-                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstItem="map-QN-HVB" firstAttribute="centerX" secondItem="4Ra-Jl-h3y" secondAttribute="centerX" constant="-7.5" id="thF-s7-DgI">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-10"/>
@@ -138,6 +135,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="t8j-yC-R29"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="segueToScanner" id="ksU-GL-r4h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zL1-9t-ngz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,11 +170,29 @@
                     </view>
                     <connections>
                         <outlet property="preview" destination="H78-I8-FPS" id="eW8-tn-sjX"/>
+                        <segue destination="uLE-db-dXg" kind="show" identifier="segueToPaymentDetail" id="BWe-y4-KfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1335" y="351"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dPq-dj-mYO">
+            <objects>
+                <viewController id="uLE-db-dXg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hSm-M8-EXh"/>
+                        <viewControllerLayoutGuide type="bottom" id="C8o-dH-VAC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EWD-9o-V1L">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJf-yh-liq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4cF-el-W6p">
