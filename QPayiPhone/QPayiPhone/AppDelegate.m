@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Venmo-iOS-SDK/Venmo.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc"
+                  clientKey:@"1oE6kAMmL9pkFe4iHdDiFoBC6xo5PvUGrZxRkk3n"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     //Initialize Venmo
     [Venmo startWithAppId:@"2505" secret:@"Upa4NGWBBS2KHVnc7wdbfHH9UDjavSTf" name:@"QPay"];
