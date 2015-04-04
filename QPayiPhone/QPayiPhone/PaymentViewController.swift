@@ -12,10 +12,12 @@ import AVFoundation
 class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var receivedData:Bool = false;
     var itemObject:PFObject?;
+    var itemId: String?;
     
     override func viewWillAppear(animated: Bool) {
         self.receivedData = false;
         self.itemObject = nil;
+        self.itemId = nil;
         self.captureQRCode();
     }
     
@@ -47,7 +49,7 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 if metadataObject.type == AVMetadataObjectTypeQRCode {
                     if  !receivedData {
                         receivedData = true;
-                        var itemId = metadataObject.stringValue;
+                        self.itemId = metadataObject.stringValue;
                         
                         var completionHandler:(PFObject!, NSError!) -> Void = {
                             (itemObject:PFObject!, error:NSError!) -> Void in
@@ -62,7 +64,7 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         }
                         
                         let PaymentObject = PaymentModel();
-                        PaymentObject.retrieveDataFromItemId(itemId, completionHandler: completionHandler);
+                        PaymentObject.retrieveDataFromItemId(self.itemId!, completionHandler: completionHandler);
                     }
                 }
             }
@@ -70,9 +72,9 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if (segue.identifier == "segueToPaymentDetail") {
             let destinationViewController = segue.destinationViewController as ConfirmationViewController
+            destinationViewController.itemId = self.itemId!
             destinationViewController.itemTitle = self.itemObject!.objectForKey("title") as String;
             destinationViewController.itemAmount = self.itemObject!.objectForKey("amount") as UInt;
             destinationViewController.itemDescription = self.itemObject!.objectForKey("description") as String;

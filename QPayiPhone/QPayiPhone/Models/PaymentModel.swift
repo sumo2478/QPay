@@ -28,4 +28,11 @@ class PaymentModel {
         query.getObjectInBackgroundWithId(itemId, block: completionHandler);
         return true;
     }
+    
+    func recordPaymentInParse(itemId:String, username:String, completionHandler:PFBooleanResultBlock) -> Void {
+        var paymentRecord = PFObject(className: "payments");
+        paymentRecord.setObject(itemId, forKey: "itemId");
+        paymentRecord.setObject(username, forKey: "vusername");
+        paymentRecord.saveInBackgroundWithBlock(completionHandler);
+    }
 }
