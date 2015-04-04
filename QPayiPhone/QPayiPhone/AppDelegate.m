@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Venmo-iOS-SDK/Venmo.h>
 
 @interface AppDelegate ()
 
@@ -16,8 +17,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //Initialize Venmo
+    [Venmo startWithAppId:@"2505" secret:@"Upa4NGWBBS2KHVnc7wdbfHH9UDjavSTf" name:@"QPay"];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[Venmo sharedInstance] handleOpenURL:url]) {
+        return YES;
+    }
+    // You can add your app-specific url handling code here if needed
+    return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
