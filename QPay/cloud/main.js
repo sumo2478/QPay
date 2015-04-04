@@ -13,7 +13,7 @@ Parse.Cloud.define("create", function(request, response) {
 
 	newItem.set("title", title);
 	newItem.set("description", description);
-	newItem.set("amount", amount);
+	newItem.set("amount", Number(amount));
 	newItem.set("vusername", username);
 	newItem.set("email", email);
 	newItem.set("password", password);
