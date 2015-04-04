@@ -12,7 +12,9 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet var button: UIButton!
-
+    @IBOutlet var userName: UILabel!
+    @IBOutlet var logoutButton: UIButton!
+    
     var isLoggedIn = false;
 
     override func viewDidLoad() {
@@ -29,9 +31,9 @@ class MainViewController: UIViewController {
         self.button.layer.cornerRadius = 4.0;
         
         if (Venmo.sharedInstance().isSessionValid()) {
-            self.isLoggedIn = true;
+            self.setUIforLoggedIn();
         } else {
-            self.isLoggedIn = false;
+            self.setUIforLoggedOut();
         }
     }
 
@@ -43,11 +45,9 @@ class MainViewController: UIViewController {
         if (self.isLoggedIn) {
             performSegueWithIdentifier("segueToScanner", sender: nil);
         } else {
-
             Venmo.sharedInstance().requestPermissions(["make_payments", "access_profile"], withCompletionHandler: { (var success, var error) -> Void in
                 if (success) {
-                    self.isLoggedIn = true;
-                    self.button.setTitle("Scan QR Code", forState: UIControlState.Normal);
+                    self.setUIforLoggedIn();
                 } else {
                     var alert = UIAlertController(title: "Authorization failed", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil));
@@ -55,6 +55,26 @@ class MainViewController: UIViewController {
                 }
             });
         }
+    }
+    
+    @IBAction func logoutPressed(sender: AnyObject) {
+        self.setUIforLoggedOut();
+    }
+    
+    func setUIforLoggedIn() {
+        self.isLoggedIn = true;
+        self.button.setTitle("Scan QR Code", forState: UIControlState.Normal);
+        var username = Venmo.sharedInstance().session.user.displayName;
+        self.userName.text = "Logged in as " + username;
+        self.userName.hidden = false;
+        self.logoutButton.hidden = false;
+    }
+    
+    func setUIforLoggedOut() {
+        self.isLoggedIn = false;
+        self.button.setTitle("Login with Venmo", forState: UIControlState.Normal);
+        self.userName.hidden = true;
+        self.logoutButton.hidden = true;
     }
     
 }
