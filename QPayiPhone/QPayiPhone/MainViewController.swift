@@ -25,6 +25,10 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet var buttonPressed: UIButton!
     
+    @IBAction func buttonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("segueToScanner", sender: nil);
+    }
     
 }
