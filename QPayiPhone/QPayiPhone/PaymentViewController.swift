@@ -10,8 +10,12 @@ import Foundation
 import AVFoundation
 
 class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    var receivedData:Bool = false;
+    var itemObject:PFObject?;
     
-    override func viewDidLoad() {
+    override func viewWillAppear(animated: Bool) {
+        self.receivedData = false;
+        self.itemObject = nil;
         self.captureQRCode();
     }
     
@@ -41,22 +45,39 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         for item in metadataObjects {
             if let metadataObject = item as? AVMetadataMachineReadableCodeObject {
                 if metadataObject.type == AVMetadataObjectTypeQRCode {
-                    var itemId = metadataObject.stringValue;
-                    
-                    var completionHandler:(PFObject!, NSError!) -> Void = {
-                        (itemObject:PFObject!, error:NSError!) -> Void in
-                        if error == nil {
-                            print(itemObject);
+                    if  !receivedData {
+                        receivedData = true;
+                        var itemId = metadataObject.stringValue;
+                        
+                        var completionHandler:(PFObject!, NSError!) -> Void = {
+                            (itemObject:PFObject!, error:NSError!) -> Void in
+                            if error == nil {
+                                self.itemObject = itemObject;
+                                
+                                self.performSegueWithIdentifier("segueToPaymentDetail", sender: nil);
+                            }
+                            else {
+                                print("Error: " + error.localizedDescription);
+                            }
                         }
-                        else {
-                            print("Error: " + error.localizedDescription);
-                        }
+                        
+                        let PaymentObject = PaymentModel();
+                        PaymentObject.retrieveDataFromItemId(itemId, completionHandler: completionHandler);
                     }
-                    
-                    let PaymentObject = PaymentModel();
-                    PaymentObject.retrieveDataFromItemId(itemId, completionHandler: completionHandler);
                 }
             }
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "segueToPaymentDetail") {
+            let destinationViewController = segue.destinationViewController as ConfirmationViewController
+            destinationViewController.itemTitle = self.itemObject!.objectForKey("title") as String;
+            destinationViewController.itemAmount = self.itemObject!.objectForKey("amount") as UInt;
+            destinationViewController.itemDescription = self.itemObject!.objectForKey("description") as String;
+            destinationViewController.itemUserName = self.itemObject!.objectForKey("vusername") as String;
+        }
+        
     }
 }

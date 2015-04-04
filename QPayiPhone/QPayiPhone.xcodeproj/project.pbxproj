@@ -19,6 +19,7 @@
 		86BB1A421AD0732D007BEB62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BB1A411AD0732D007BEB62 /* MainViewController.swift */; };
 		A717A9B11AD05FA7008261AD /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B01AD05FA7008261AD /* PaymentModel.swift */; };
 		A717A9B51AD06FEB008261AD /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B41AD06FEB008261AD /* PaymentViewController.swift */; };
+		A717A9B71AD094A8008261AD /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B61AD094A8008261AD /* ConfirmationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A717A9AF1AD05FA6008261AD /* QPayiPhone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QPayiPhone-Bridging-Header.h"; sourceTree = "<group>"; };
 		A717A9B01AD05FA7008261AD /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentModel.swift; path = Models/PaymentModel.swift; sourceTree = "<group>"; };
 		A717A9B41AD06FEB008261AD /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		A717A9B61AD094A8008261AD /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		B86A535F0F3A702F2D79885B /* Pods-QPayiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPayiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QPayiPhone/Pods-QPayiPhone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				86BB1A411AD0732D007BEB62 /* MainViewController.swift */,
 				A717A9B41AD06FEB008261AD /* PaymentViewController.swift */,
 				A717A9B01AD05FA7008261AD /* PaymentModel.swift */,
+				A717A9B61AD094A8008261AD /* ConfirmationViewController.swift */,
 				8662D32B1ACFC9F50076AD2E /* Main.storyboard */,
 				8662D32E1ACFC9F50076AD2E /* Images.xcassets */,
 				8662D3301ACFC9F50076AD2E /* LaunchScreen.xib */,
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A717A9B71AD094A8008261AD /* ConfirmationViewController.swift in Sources */,
 				A717A9B11AD05FA7008261AD /* PaymentModel.swift in Sources */,
 				8662D32A1ACFC9F50076AD2E /* ViewController.m in Sources */,
 				A717A9B51AD06FEB008261AD /* PaymentViewController.swift in Sources */,
