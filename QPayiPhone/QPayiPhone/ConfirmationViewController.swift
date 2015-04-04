@@ -9,6 +9,12 @@
 import Foundation
 
 class ConfirmationViewController: UIViewController {
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var amountLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    
     var itemTitle:String = "";
     var itemDescription:String = "";
     var itemAmount:UInt = 0;
