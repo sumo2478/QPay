@@ -21,5 +21,7 @@ class ConfirmationViewController: UIViewController {
         print("Username: \(itemUserName)\n");
     }
     
-    
+    @IBAction func pay(sender: AnyObject) {
+        
+    }
 }

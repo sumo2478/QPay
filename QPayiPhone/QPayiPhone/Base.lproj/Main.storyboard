@@ -50,7 +50,7 @@
                                     <action selector="buttonPressed:" destination="sAh-sz-NKK" eventType="touchUpInside" id="tj8-di-FIL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ra-Jl-h3y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ra-Jl-h3y">
                                 <rect key="frame" x="224" y="179" width="188" height="209"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="212" id="qEl-rG-Pup">
@@ -112,13 +112,13 @@
                                 <exclude reference="map-QN-HVB"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="3PI-RF-HfN"/>
+                                <exclude reference="o87-Cz-pbq"/>
+                                <exclude reference="thF-s7-DgI"/>
                                 <exclude reference="7Sz-PC-fYC"/>
                                 <exclude reference="NPD-CB-0XJ"/>
                                 <exclude reference="Ul7-gV-l9k"/>
                                 <exclude reference="YFm-bY-IBl"/>
-                                <exclude reference="3PI-RF-HfN"/>
-                                <exclude reference="o87-Cz-pbq"/>
-                                <exclude reference="thF-s7-DgI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -126,13 +126,13 @@
                                 <include reference="map-QN-HVB"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="3PI-RF-HfN"/>
+                                <include reference="o87-Cz-pbq"/>
+                                <exclude reference="thF-s7-DgI"/>
                                 <exclude reference="7Sz-PC-fYC"/>
                                 <include reference="NPD-CB-0XJ"/>
                                 <include reference="Ul7-gV-l9k"/>
                                 <exclude reference="YFm-bY-IBl"/>
-                                <include reference="3PI-RF-HfN"/>
-                                <include reference="o87-Cz-pbq"/>
-                                <exclude reference="thF-s7-DgI"/>
                             </mask>
                         </variation>
                     </view>
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="621.75" y="351"/>
         </scene>
-        <!--View Controller-->
+        <!--Payment View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="PaymentViewController" customModule="QPayiPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -173,7 +173,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="preview" destination="H78-I8-FPS" id="eW8-tn-sjX"/>
                         <segue destination="uLE-db-dXg" kind="show" identifier="segueToPaymentDetail" id="BWe-y4-KfO"/>
                     </connections>
                 </viewController>
@@ -181,15 +180,16 @@
             </objects>
             <point key="canvasLocation" x="1335" y="351"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirmation View Controller-->
         <scene sceneID="dPq-dj-mYO">
             <objects>
-                <viewController id="uLE-db-dXg" sceneMemberID="viewController">
+                <viewController id="uLE-db-dXg" customClass="ConfirmationViewController" customModule="QPayiPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hSm-M8-EXh"/>
                         <viewControllerLayoutGuide type="bottom" id="C8o-dH-VAC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EWD-9o-V1L">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrS-Te-5CH">
@@ -216,6 +216,9 @@
                                         <include reference="c6d-d8-RbP"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="pay:" destination="uLE-db-dXg" eventType="touchUpInside" id="GNj-Jy-FdM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -232,8 +235,8 @@
                                 <exclude reference="LrS-Te-5CH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="O9N-iY-H1g"/>
                                 <exclude reference="Zrp-4W-SK3"/>
+                                <exclude reference="O9N-iY-H1g"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -241,8 +244,8 @@
                                 <include reference="LrS-Te-5CH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="O9N-iY-H1g"/>
                                 <include reference="Zrp-4W-SK3"/>
+                                <include reference="O9N-iY-H1g"/>
                             </mask>
                         </variation>
                     </view>
