@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.0"
+  },
+  "applications": {
+    "QPay": {
+      "applicationId": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc",
+      "masterKey": "vqyyhCAdzYGiSNMZcOTEezyRoekbpP8JLljeFsmg"
+    },
+    "_default": {
+      "link": "QPay"
+    }
+  }
+}
