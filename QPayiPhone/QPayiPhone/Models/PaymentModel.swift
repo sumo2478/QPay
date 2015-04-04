@@ -22,4 +22,9 @@ class PaymentModel {
         
         return true;
     }
+    
+    func logPaymentTransaction() {
+        // Helper Function
+        
+    }
 }
