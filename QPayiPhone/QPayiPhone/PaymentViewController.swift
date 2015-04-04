@@ -41,7 +41,20 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         for item in metadataObjects {
             if let metadataObject = item as? AVMetadataMachineReadableCodeObject {
                 if metadataObject.type == AVMetadataObjectTypeQRCode {
-                    println("QR Code: \(metadataObject.stringValue)")
+                    var itemId = metadataObject.stringValue;
+                    
+                    var completionHandler:(PFObject!, NSError!) -> Void = {
+                        (itemObject:PFObject!, error:NSError!) -> Void in
+                        if error == nil {
+                            print(itemObject);
+                        }
+                        else {
+                            print("Error: " + error.localizedDescription);
+                        }
+                    }
+                    
+                    let PaymentObject = PaymentModel();
+                    PaymentObject.retrieveDataFromItemId(itemId, completionHandler: completionHandler);
                 }
             }
         }
