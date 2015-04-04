@@ -109,13 +109,13 @@
 				8662D3261ACFC9F50076AD2E /* AppDelegate.m */,
 				8662D3281ACFC9F50076AD2E /* ViewController.h */,
 				8662D3291ACFC9F50076AD2E /* ViewController.m */,
+				86BB1A411AD0732D007BEB62 /* MainViewController.swift */,
 				A717A9B01AD05FA7008261AD /* PaymentModel.swift */,
 				8662D32B1ACFC9F50076AD2E /* Main.storyboard */,
 				8662D32E1ACFC9F50076AD2E /* Images.xcassets */,
 				8662D3301ACFC9F50076AD2E /* LaunchScreen.xib */,
 				8662D3211ACFC9F50076AD2E /* Supporting Files */,
 				A717A9AF1AD05FA6008261AD /* QPayiPhone-Bridging-Header.h */,
-				86BB1A411AD0732D007BEB62 /* MainViewController.swift */,
 			);
 			path = QPayiPhone;
 			sourceTree = "<group>";

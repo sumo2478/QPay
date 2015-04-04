@@ -16,30 +16,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SCY-2s-L2i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroun2" translatesAutoresizingMaskIntoConstraints="NO" id="SCY-2s-L2i">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="map-QN-HVB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.3586815463541983" green="0.37517265193370164" blue="0.37517265193370164" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5aR-u3-fX8">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="140" id="nF5-9o-odN">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="130"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Scan QR Code">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5aR-u3-fX8"/>
+                                        <exclude reference="nF5-9o-odN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="5aR-u3-fX8"/>
+                                        <include reference="nF5-9o-odN"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="MTM-Qb-61N"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ra-Jl-h3y">
+                                <rect key="frame" x="224" y="179" width="188" height="209"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="qEl-rG-Pup">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="250"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to QPay">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="37" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qEl-rG-Pup"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="qEl-rG-Pup"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="map-QN-HVB" firstAttribute="leading" secondItem="4Ra-Jl-h3y" secondAttribute="leading" constant="45" id="3PI-RF-HfN">
+                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="SCY-2s-L2i" firstAttribute="centerY" secondItem="4Ra-Jl-h3y" secondAttribute="centerY" constant="202.75" id="7Sz-PC-fYC">
+                                <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                            </constraint>
                             <constraint firstItem="SCY-2s-L2i" firstAttribute="leading" secondItem="Bsa-be-DeC" secondAttribute="leading" id="F9P-hp-Pnk"/>
+                            <constraint firstItem="4Ra-Jl-h3y" firstAttribute="leading" secondItem="Bsa-be-DeC" secondAttribute="leading" constant="51" id="NPD-CB-0XJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                            </constraint>
                             <constraint firstItem="TqE-2Y-BOj" firstAttribute="top" secondItem="SCY-2s-L2i" secondAttribute="bottom" id="Pes-sa-kBO"/>
                             <constraint firstAttribute="trailing" secondItem="SCY-2s-L2i" secondAttribute="trailing" id="R4T-ss-7om"/>
+                            <constraint firstItem="4Ra-Jl-h3y" firstAttribute="top" secondItem="cXC-gv-Apj" secondAttribute="bottom" constant="80" id="Ul7-gV-l9k">
+                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                            </constraint>
+                            <constraint firstItem="4Ra-Jl-h3y" firstAttribute="top" secondItem="cXC-gv-Apj" secondAttribute="bottom" constant="116" id="YFm-bY-IBl">
+                                <variation key="heightClass=regular-widthClass=compact" constant="90"/>
+                            </constraint>
                             <constraint firstItem="SCY-2s-L2i" firstAttribute="top" secondItem="Bsa-be-DeC" secondAttribute="top" id="iRb-tt-SnN"/>
+                            <constraint firstItem="map-QN-HVB" firstAttribute="top" secondItem="4Ra-Jl-h3y" secondAttribute="bottom" constant="8" id="o87-Cz-pbq">
+                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                            </constraint>
+                            <constraint firstItem="map-QN-HVB" firstAttribute="centerX" secondItem="4Ra-Jl-h3y" secondAttribute="centerX" constant="-7.5" id="thF-s7-DgI">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-10"/>
+                            </constraint>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="map-QN-HVB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7Sz-PC-fYC"/>
+                                <exclude reference="NPD-CB-0XJ"/>
+                                <exclude reference="Ul7-gV-l9k"/>
+                                <exclude reference="YFm-bY-IBl"/>
+                                <exclude reference="3PI-RF-HfN"/>
+                                <exclude reference="o87-Cz-pbq"/>
+                                <exclude reference="thF-s7-DgI"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="map-QN-HVB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7Sz-PC-fYC"/>
+                                <include reference="NPD-CB-0XJ"/>
+                                <include reference="Ul7-gV-l9k"/>
+                                <exclude reference="YFm-bY-IBl"/>
+                                <include reference="3PI-RF-HfN"/>
+                                <include reference="o87-Cz-pbq"/>
+                                <exclude reference="thF-s7-DgI"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="t8j-yC-R29">
-                        <barButtonItem key="rightBarButtonItem" title="Scan" id="0gs-Zw-zOw">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="Suw-ot-qpj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="t8j-yC-R29"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zL1-9t-ngz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="351"/>
+            <point key="canvasLocation" x="621.75" y="351"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -79,6 +181,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="idh-Yd-cMw" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nZG-bK-KAc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -93,4 +196,7 @@
             <point key="canvasLocation" x="-83" y="351"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backgroun2" width="640" height="1136"/>
+    </resources>
 </document>
