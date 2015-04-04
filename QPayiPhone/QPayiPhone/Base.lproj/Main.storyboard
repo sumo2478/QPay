@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPv-tl-4Xq">
-                                <rect key="frame" x="277" y="285" width="30" height="30"/>
+                                <rect key="frame" x="554" y="36" width="30" height="30"/>
                                 <state key="normal" title="Pay">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -25,13 +25,52 @@
                                     <action selector="payButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qAa-ST-1GL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="vNB-L1-Y8J">
+                                <rect key="frame" x="200" y="520" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.82745098039999998" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8AB-gx-s1W"/>
+                                    <constraint firstAttribute="height" constant="60" id="SO5-Zd-8Az"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Scan QR Code"/>
+                                <connections>
+                                    <action selector="scanButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qEw-8h-AYh"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H78-I8-FPS">
+                                <rect key="frame" x="30" y="100" width="540" height="400"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vNB-L1-Y8J" firstAttribute="top" secondItem="H78-I8-FPS" secondAttribute="bottom" constant="20" id="9g5-3B-GTw"/>
+                            <constraint firstItem="H78-I8-FPS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="30" id="JAk-MB-5kO"/>
+                            <constraint firstAttribute="trailing" secondItem="VPv-tl-4Xq" secondAttribute="trailing" constant="16" id="RvR-KF-Apd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="H78-I8-FPS" secondAttribute="bottom" constant="100" id="SZL-E5-2uo"/>
+                            <constraint firstItem="VPv-tl-4Xq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="SyO-ic-yur"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vNB-L1-Y8J" secondAttribute="bottom" constant="20" id="XUl-9V-6BE"/>
+                            <constraint firstAttribute="centerY" secondItem="vNB-L1-Y8J" secondAttribute="centerY" id="aBk-j9-hXm"/>
                             <constraint firstAttribute="centerY" secondItem="VPv-tl-4Xq" secondAttribute="centerY" id="fkZ-NU-Xex"/>
+                            <constraint firstAttribute="trailing" secondItem="H78-I8-FPS" secondAttribute="trailing" constant="30" id="lnS-Ct-7bD"/>
                             <constraint firstAttribute="centerX" secondItem="VPv-tl-4Xq" secondAttribute="centerX" constant="8" id="qFM-hw-Uom"/>
+                            <constraint firstAttribute="centerX" secondItem="vNB-L1-Y8J" secondAttribute="centerX" id="ryE-3F-wOz"/>
+                            <constraint firstItem="H78-I8-FPS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="80" id="ujL-7T-hbS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aBk-j9-hXm"/>
+                                <exclude reference="fkZ-NU-Xex"/>
+                                <exclude reference="qFM-hw-Uom"/>
+                                <exclude reference="XUl-9V-6BE"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="preview" destination="H78-I8-FPS" id="eW8-tn-sjX"/>
+                        <outlet property="scanButton" destination="vNB-L1-Y8J" id="IQR-Kb-N4p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

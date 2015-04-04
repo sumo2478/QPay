@@ -15,6 +15,7 @@
 		8662D32F1ACFC9F50076AD2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8662D32E1ACFC9F50076AD2E /* Images.xcassets */; };
 		8662D3321ACFC9F50076AD2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8662D3301ACFC9F50076AD2E /* LaunchScreen.xib */; };
 		8662D33E1ACFC9F50076AD2E /* QPayiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D33D1ACFC9F50076AD2E /* QPayiPhoneTests.m */; };
+		8662D3481ACFF0DC0076AD2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		8662D3371ACFC9F50076AD2E /* QPayiPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QPayiPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8662D33C1ACFC9F50076AD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8662D33D1ACFC9F50076AD2E /* QPayiPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QPayiPhoneTests.m; sourceTree = "<group>"; };
+		8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B86A535F0F3A702F2D79885B /* Pods-QPayiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPayiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QPayiPhone/Pods-QPayiPhone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8662D3481ACFF0DC0076AD2E /* AVFoundation.framework in Frameworks */,
 				6799EF6DE0FE6664C1027888 /* libPods-QPayiPhone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +71,7 @@
 		281414C839401E910426757D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */,
 				5C1192BDDD6FFC90AF0A42ED /* libPods-QPayiPhone.a */,
 			);
 			name = Frameworks;
