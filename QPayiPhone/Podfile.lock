@@ -1,0 +1,26 @@
+PODS:
+  - Bolts (1.1.4)
+  - CMDQueryStringSerialization (0.2.0)
+  - Parse (1.7.1):
+    - Bolts (~> 1.1)
+  - SSKeychain (1.2.3)
+  - VENCore (3.0.1):
+    - CMDQueryStringSerialization (~> 0.2.0)
+  - Venmo-iOS-SDK (1.3.0):
+    - CMDQueryStringSerialization (~> 0.2.0)
+    - SSKeychain (~> 1.2.2)
+    - VENCore (~> 3.0.0)
+
+DEPENDENCIES:
+  - Parse (~> 1.3)
+  - Venmo-iOS-SDK (~> 1.3)
+
+SPEC CHECKSUMS:
+  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
+  Parse: fa8ec29de6d82035635986c11946299fb1b38316
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  VENCore: 7adedc7c0e65e3ba922cc21c35f3d0e133d43df7
+  Venmo-iOS-SDK: 456097c6df57544362719ea8db01541953aec44d
+
+COCOAPODS: 0.34.4
