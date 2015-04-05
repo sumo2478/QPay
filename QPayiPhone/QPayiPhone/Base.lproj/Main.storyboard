@@ -468,7 +468,7 @@
             </objects>
             <point key="canvasLocation" x="2033" y="-371"/>
         </scene>
-        <!--Confirmation View Controller-->
+        <!--Payment Detail-->
         <scene sceneID="WI1-m7-xRe">
             <objects>
                 <viewController id="2B0-tm-fEk" customClass="ConfirmationViewController" customModule="QPayiPhone" customModuleProvider="target" sceneMemberID="viewController">
@@ -608,6 +608,13 @@
                             <constraint firstItem="ige-8P-K2B" firstAttribute="top" secondItem="vYs-xD-B4b" secondAttribute="top" id="qq5-WN-pXR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Payment Detail" id="wGh-Dy-R06">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="C7Q-yN-x0B">
+                            <connections>
+                                <action selector="cancelPressed:" destination="2B0-tm-fEk" id="EM0-uJ-wb0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ige-8P-K2B" id="zv1-wj-chU"/>
                     </connections>

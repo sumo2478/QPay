@@ -114,7 +114,7 @@ class ConfirmationViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func payWithVenmoAPI() -> Void {
-        Venmo.sharedInstance().sendPaymentTo(self.itemUserName, amount: UInt(self.itemAmount), note: self.itemTitle + " - " + self.itemDescription, audience: VENTransactionAudience.Public) { (transaction, success, error) -> Void in
+        Venmo.sharedInstance().sendPaymentTo(self.itemUserName + "@venmo.com", amount: UInt(self.itemAmount), note: self.itemTitle + " - " + self.itemDescription, audience: VENTransactionAudience.Public) { (transaction, success, error) -> Void in
             if (success) {
                 println("payment success");
                 self.recordPayment();
@@ -128,7 +128,12 @@ class ConfirmationViewController: UIViewController, UITableViewDataSource, UITab
         var completionHandler:(Bool!, NSError!) -> Void = {
             (success:Bool!, error:NSError!) -> Void in
             if success == true {
-                self.navigationController?.popToRootViewControllerAnimated(true);
+                var confirmationAlert = UIAlertController(title: "Payment Succeeded", message: "Thanks You!", preferredStyle: UIAlertControllerStyle.Alert);
+                confirmationAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    self.navigationController?.popToRootViewControllerAnimated(true);
+                    return;
+                }));
+                self.presentViewController(confirmationAlert, animated: true, completion: nil);
             }
             else {
                 print("There was an error saving your payment");
