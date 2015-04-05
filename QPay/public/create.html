@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+    <title>Qpay form</title>
+
+    <!-- Bootstrap -->
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+   
+  </head>
+
+  <style type="text/css">
+    body{
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+    $("button").click(function (e){
+      e.preventDefault();
+      $.ajax({
+        url: "https://api.parse.com/1/functions/create",
+        type: 'POST',
+        headers:{"X-Parse-Application-Id": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc", "X-Parse-REST-API-Key": "xcWVe8K7Q9fpiybqkK52uOiYJ24SlwedCgyTPJsN"},
+        data: {
+          title: document.getElementById('title').value, 
+          description: document.getElementById('description').value,
+          amount: document.getElementById('amount').value,
+          username: document.getElementById('username').value,
+          email: document.getElementById('email').value,
+          password: document.getElementById('password').value
+        },
+        success: function(data){
+          console.log(JSON.stringify(data));      
+          window.location.replace("qrcode.html"); 
+        }
+      })
+      .done(function(msg){
+        
+      })
+      .fail(function(msg){
+        alert('form was not');
+      });
+      e.preventDefault();
+    });
+  });
+
+
+  </script>
+
+  <body>
+    <h1>Qpay Form</h1>
+<!--
+    <h1>Qpay Form</h1>
+    <ul>
+      <li>title</li> 
+      <li>email</li>
+      <li>venmo id</li>
+      <li>payment description</li>
+      <li>amount</li>
+      <li>password to retrieve</li> 
+    </ul>
+-->
+
+    <form action="" method="post">
+
+      Title: <input type="text" id="title"><br>
+      Email: <input type="text" id="email"><br>
+      Username: <input type="text" id="username"><br>
+      Payment Description: <br><textarea rows="5" cols="50" id="description"></textarea><br>
+      Amount: <input type="number" id="amount"><br> 
+      Password: <input type="text" id="password"><br>
+      <button name="button" id="button">Submit</button>
+
+    </form>
+      
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -
+    <script src="js/bootstrap.min.js"></script> -->
+  </body>
+</html>
