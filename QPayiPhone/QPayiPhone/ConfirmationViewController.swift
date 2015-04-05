@@ -81,7 +81,7 @@ class ConfirmationViewController: UIViewController {
         var name = Venmo.sharedInstance().session.user.displayName;
         
         let PaymentObject = PaymentModel();
-        PaymentObject.recordPaymentInParse(self.itemId, username: username, name: name, completionHandler: completionHandler);
+        PaymentObject.recordPaymentInParse(self.itemId, username: username, name: name, note: "This is a note", completionHandler: completionHandler);
     }
     
     @IBAction func cancelPressed(sender: AnyObject) {
