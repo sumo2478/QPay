@@ -232,6 +232,7 @@
 				TargetAttributes = {
 					8662D31D1ACFC9F50076AD2E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = QW4YTV2H2T;
 					};
 					8662D3361ACFC9F50076AD2E = {
 						CreatedOnToolsVersion = 6.2;
