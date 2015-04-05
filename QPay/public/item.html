@@ -13,36 +13,51 @@
 
 	<style>
 		body{
-			margin-left: 10px;
+	    	margin-left:20px;
+	    	margin-right:20px;
+			margin-top:20px;
+		    margin: 0 auto;
+		    width:80%;
+		    float:center;
 		}
-		table, th, td{
-			border: 1px solid #333;
+		.center_header {
+			text-align:center;
 		}
 	</style>
 
-
 	<body>	
+		<h1 class="center_header">QPay Event Summary</h1>
+		<hr>
+		
 		<div ng-app="QPay" ng-controller="myCtrl">
-			<h1>{{ title }}</h1>
-			<h3>Description: {{ description }}</h3>
-			<h3>Amount: {{ amount }}</h3>
-			<h3>Venmo Username To Send To: {{ username }}</h3>
-			<h3>Email Contact: {{ email }}</h3>
+			<div class="row">
+			  <div class="col-md-8">
+	  			<h2>{{ title }}</h2>
+	  			<h4>Description: {{ description }}</h4>
+	  			<h4>Amount: ${{ amount }}</h4>
+	  			<h4>Venmo Recipient Username: {{ username }}</h4>
+			  </div>
+			  
+			  <div class="col-md-4">
+			  	<img src="{{ qrCode }}">
+			  </div>
+			</div>
 
-			<table>
+			<table class="table table-striped">
 				<tr>
 					<th>Username</th>
 					<th>Full Name</th>
 					<th>Note</th>
+					<th>Payment Date</th>
 				</tr>
-				<tr ng-repeat="x in payments">				
+				<tr ng-repeat="x in payments">	
 					<td>{{ x.vusername }}</td>
 					<td>{{ x.name }}</td>
 					<td>{{ x.note }}</td>
+					<td>{{ x.createdAt | date }}</td>
 				</tr>
 			</table>
 
-			<img src="{{ qrCode }}">
 		</div>
 
 	</body>
