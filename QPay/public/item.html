@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+		<title> QR Code </title>
+
+		<!-- Bootstrap -->
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	</head>
+
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+		console.log("hello");
+		$.ajax({
+			url: " https://api.parse.com/1/functions/retrieve",
+			type: 'POST',
+			headers:{"X-Parse-Application-Id": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc", "X-Parse-REST-API-Key": "xcWVe8K7Q9fpiybqkK52uOiYJ24SlwedCgyTPJsN"},
+			data:{
+				id: "81igU2o6jz"
+			},
+			success: function(data){
+				console.log(JSON.stringify(data));
+				console.log("length: " + data.result.payments.length);    	       
+			}
+		});
+
+	});
+
+	function addRow(){
+		var table = document.getElementById("usernameTable");
+		for
+		var row = table.insertRow(-1);
+		var cell = row.insertCell(-1);
+		// cell.innerHTML = payments[index];
+	}
+	
+
+	</script>
+
+	<style>
+		body{
+			margin-left: 10px;
+		}
+		table, th, td{
+			border: 1px solid #333;
+		}
+	</style>
+
+
+	<body>
+	
+		<img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl" + 81igU2o6jz>
+
+		<br>
+
+		<table id="usernameTable">
+			<thead>
+				<tr>
+					<th> Username
+				</tr>	
+			</thead>	
+		</table>
+
+		<button onclick="addRow()"> Add Row </button>
+
+	</body>
+
+</html>
