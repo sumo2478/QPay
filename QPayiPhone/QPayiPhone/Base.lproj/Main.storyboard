@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="idh-Yd-cMw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -134,12 +135,12 @@
                                 <include reference="s7c-Qn-MuT"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="g15-zf-Xla"/>
-                                <include reference="FVe-QM-VZA"/>
                                 <include reference="GwC-3t-Cv5"/>
                                 <include reference="Nu7-7f-Zfy"/>
                                 <include reference="VC2-RH-1XF"/>
                                 <include reference="cSk-eg-rrB"/>
+                                <include reference="FVe-QM-VZA"/>
+                                <include reference="g15-zf-Xla"/>
                                 <include reference="Kcp-vV-vWZ"/>
                                 <include reference="yMF-93-dqU"/>
                             </mask>
@@ -186,7 +187,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="uLE-db-dXg" kind="show" identifier="segueToPaymentDetail" id="BWe-y4-KfO"/>
+                        <segue destination="2B0-tm-fEk" kind="show" identifier="segueToPaymentDetail" id="wEW-f3-n2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -465,7 +466,155 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJf-yh-liq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="351"/>
+            <point key="canvasLocation" x="2033" y="-371"/>
+        </scene>
+        <!--Confirmation View Controller-->
+        <scene sceneID="WI1-m7-xRe">
+            <objects>
+                <viewController id="2B0-tm-fEk" customClass="ConfirmationViewController" customModule="QPayiPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nLq-vJ-37u"/>
+                        <viewControllerLayoutGuide type="bottom" id="bwq-pH-jAC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vYs-xD-B4b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ige-8P-K2B">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleTableViewCell" rowHeight="115" id="WTQ-fb-jcJ" userLabel="TitleCell" customClass="TitleTableViewCell" customModule="QPayiPhone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTQ-fb-jcJ" id="VPQ-L8-OWT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAi-zd-bMZ" userLabel="descriptionLabel">
+                                                    <rect key="frame" x="8" y="49" width="584" height="43"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.31423389670000001" green="0.31423389670000001" blue="0.31423389670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LA Hacks Payment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-eZ-BFq" userLabel="titleLabel">
+                                                    <rect key="frame" x="8" y="8" width="584" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="NAi-zd-bMZ" id="aYK-p8-UAj"/>
+                                            <outlet property="titleLabel" destination="LtD-eZ-BFq" id="bC7-yr-VrV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmountTableViewCell" id="reF-S3-i1l" userLabel="AmountCell" customClass="AmountTableViewCell" customModule="QPayiPhone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="reF-S3-i1l" id="VbO-sC-W79">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay To: venmo@venmo.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ft-Kr-oQT" userLabel="payToLabel">
+                                                    <rect key="frame" x="8" y="9.5" width="213.5" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-S3-9dP" userLabel="amountLabel">
+                                                    <rect key="frame" x="522.5" y="9.5" width="70.5" height="23.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="260" id="SnF-3T-bkb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="SnF-3T-bkb"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="bu7-S3-9dP" secondAttribute="centerY" id="Hue-r3-hRf"/>
+                                                <constraint firstAttribute="trailing" secondItem="bu7-S3-9dP" secondAttribute="trailingMargin" constant="15" id="IQv-qz-pwp"/>
+                                                <constraint firstAttribute="centerY" secondItem="0Ft-Kr-oQT" secondAttribute="centerY" id="IZ3-SY-TOy"/>
+                                                <constraint firstItem="0Ft-Kr-oQT" firstAttribute="leading" secondItem="VbO-sC-W79" secondAttribute="leading" constant="8" id="hV6-CO-c66"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="bu7-S3-9dP" id="xZp-Gk-THK"/>
+                                            <outlet property="payToLabel" destination="0Ft-Kr-oQT" id="2lJ-ng-ZcX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesTableViewCell" rowHeight="80" id="lzY-wl-kNu" userLabel="NotesCell" customClass="NotesTableViewCell" customModule="QPayiPhone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lzY-wl-kNu" id="z4X-Fd-KZ5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add Note" translatesAutoresizingMaskIntoConstraints="NO" id="OHl-ws-Fab" userLabel="NotesTextView">
+                                                    <rect key="frame" x="8" y="8" width="584" height="64"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.31423389670000001" green="0.31423389670000001" blue="0.31423389670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OHl-ws-Fab" firstAttribute="top" secondItem="z4X-Fd-KZ5" secondAttribute="top" constant="8" id="4JH-Hl-tPr"/>
+                                                <constraint firstAttribute="bottom" secondItem="OHl-ws-Fab" secondAttribute="bottom" constant="7.5" id="Eu3-Mm-uEw"/>
+                                                <constraint firstAttribute="trailing" secondItem="OHl-ws-Fab" secondAttribute="trailing" constant="8" id="PY4-kB-Sqf"/>
+                                                <constraint firstItem="OHl-ws-Fab" firstAttribute="leading" secondItem="z4X-Fd-KZ5" secondAttribute="leading" constant="8" id="g38-wC-UAL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="notesTextView" destination="OHl-ws-Fab" id="7c8-sE-OAV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PayTableViewCell" id="qWj-Zh-LJK" userLabel="PayCell" customClass="PayTableViewCell" customModule="QPayiPhone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qWj-Zh-LJK" id="HQm-7Y-2Vm">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy8-me-RGs">
+                                                    <rect key="frame" x="284.5" y="8" width="31.5" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="Yy8-me-RGs" secondAttribute="centerY" constant="0.5" id="MYe-PG-xCp"/>
+                                                <constraint firstAttribute="centerX" secondItem="Yy8-me-RGs" secondAttribute="centerX" id="wal-Ps-39F"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2B0-tm-fEk" id="4i7-ez-WJr"/>
+                                    <outlet property="delegate" destination="2B0-tm-fEk" id="dFc-Tm-LBE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bwq-pH-jAC" firstAttribute="top" secondItem="ige-8P-K2B" secondAttribute="bottom" id="Qwn-1v-Cim"/>
+                            <constraint firstAttribute="trailing" secondItem="ige-8P-K2B" secondAttribute="trailing" id="a8x-Yw-IIt"/>
+                            <constraint firstItem="ige-8P-K2B" firstAttribute="leading" secondItem="vYs-xD-B4b" secondAttribute="leading" id="myn-kA-lsJ"/>
+                            <constraint firstItem="ige-8P-K2B" firstAttribute="top" secondItem="vYs-xD-B4b" secondAttribute="top" id="qq5-WN-pXR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ige-8P-K2B" id="zv1-wj-chU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lk0-18-IpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2033" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4cF-el-W6p">

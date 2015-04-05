@@ -17,9 +17,13 @@
 		8662D33E1ACFC9F50076AD2E /* QPayiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D33D1ACFC9F50076AD2E /* QPayiPhoneTests.m */; };
 		8662D3481ACFF0DC0076AD2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */; };
 		86BB1A421AD0732D007BEB62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BB1A411AD0732D007BEB62 /* MainViewController.swift */; };
+		A70787CC1AD113BE00C6FB42 /* PayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70787CB1AD113BE00C6FB42 /* PayTableViewCell.swift */; };
 		A717A9B11AD05FA7008261AD /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B01AD05FA7008261AD /* PaymentModel.swift */; };
 		A717A9B51AD06FEB008261AD /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B41AD06FEB008261AD /* PaymentViewController.swift */; };
 		A717A9B71AD094A8008261AD /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717A9B61AD094A8008261AD /* ConfirmationViewController.swift */; };
+		A73B59AE1AD105F5007DB61E /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73B59AD1AD105F5007DB61E /* TitleTableViewCell.swift */; };
+		A73B59B01AD10CB8007DB61E /* AmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73B59AF1AD10CB8007DB61E /* AmountTableViewCell.swift */; };
+		A73B59B21AD111ED007DB61E /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73B59B11AD111ED007DB61E /* NotesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +54,14 @@
 		8662D33D1ACFC9F50076AD2E /* QPayiPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QPayiPhoneTests.m; sourceTree = "<group>"; };
 		8662D3471ACFF0DC0076AD2E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		86BB1A411AD0732D007BEB62 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A70787CB1AD113BE00C6FB42 /* PayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayTableViewCell.swift; path = Cells/PayTableViewCell.swift; sourceTree = "<group>"; };
 		A717A9AF1AD05FA6008261AD /* QPayiPhone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QPayiPhone-Bridging-Header.h"; sourceTree = "<group>"; };
 		A717A9B01AD05FA7008261AD /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentModel.swift; path = Models/PaymentModel.swift; sourceTree = "<group>"; };
 		A717A9B41AD06FEB008261AD /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		A717A9B61AD094A8008261AD /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		A73B59AD1AD105F5007DB61E /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleTableViewCell.swift; path = Cells/TitleTableViewCell.swift; sourceTree = "<group>"; };
+		A73B59AF1AD10CB8007DB61E /* AmountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountTableViewCell.swift; path = Cells/AmountTableViewCell.swift; sourceTree = "<group>"; };
+		A73B59B11AD111ED007DB61E /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesTableViewCell.swift; path = Cells/NotesTableViewCell.swift; sourceTree = "<group>"; };
 		B86A535F0F3A702F2D79885B /* Pods-QPayiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPayiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QPayiPhone/Pods-QPayiPhone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +125,7 @@
 				A717A9B41AD06FEB008261AD /* PaymentViewController.swift */,
 				A717A9B01AD05FA7008261AD /* PaymentModel.swift */,
 				A717A9B61AD094A8008261AD /* ConfirmationViewController.swift */,
+				A73B59AC1AD105D8007DB61E /* Cells */,
 				8662D32B1ACFC9F50076AD2E /* Main.storyboard */,
 				8662D32E1ACFC9F50076AD2E /* Images.xcassets */,
 				8662D3301ACFC9F50076AD2E /* LaunchScreen.xib */,
@@ -159,6 +168,17 @@
 				428390A42989C66CF75E1988 /* Pods-QPayiPhone.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A73B59AC1AD105D8007DB61E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A73B59AD1AD105F5007DB61E /* TitleTableViewCell.swift */,
+				A73B59AF1AD10CB8007DB61E /* AmountTableViewCell.swift */,
+				A73B59B11AD111ED007DB61E /* NotesTableViewCell.swift */,
+				A70787CB1AD113BE00C6FB42 /* PayTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73B59AE1AD105F5007DB61E /* TitleTableViewCell.swift in Sources */,
+				A73B59B01AD10CB8007DB61E /* AmountTableViewCell.swift in Sources */,
 				A717A9B71AD094A8008261AD /* ConfirmationViewController.swift in Sources */,
 				A717A9B11AD05FA7008261AD /* PaymentModel.swift in Sources */,
 				8662D32A1ACFC9F50076AD2E /* ViewController.m in Sources */,
 				A717A9B51AD06FEB008261AD /* PaymentViewController.swift in Sources */,
 				8662D3271ACFC9F50076AD2E /* AppDelegate.m in Sources */,
+				A70787CC1AD113BE00C6FB42 /* PayTableViewCell.swift in Sources */,
+				A73B59B21AD111ED007DB61E /* NotesTableViewCell.swift in Sources */,
 				8662D3241ACFC9F50076AD2E /* main.m in Sources */,
 				86BB1A421AD0732D007BEB62 /* MainViewController.swift in Sources */,
 			);

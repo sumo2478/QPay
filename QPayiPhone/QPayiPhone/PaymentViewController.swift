@@ -87,9 +87,12 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segueToPaymentDetail") {
             let destinationViewController = segue.destinationViewController as ConfirmationViewController
+            var amount = self.itemObject!.objectForKey("amount") as NSNumber;
+            amount = amount.floatValue * 100;
+            
             destinationViewController.itemId = self.itemId!
             destinationViewController.itemTitle = self.itemObject!.objectForKey("title") as String;
-            destinationViewController.itemAmount = self.itemObject!.objectForKey("amount") as UInt;
+            destinationViewController.itemAmount = amount.integerValue;
             destinationViewController.itemDescription = self.itemObject!.objectForKey("description") as String;
             destinationViewController.itemUserName = self.itemObject!.objectForKey("vusername") as String;
         }
