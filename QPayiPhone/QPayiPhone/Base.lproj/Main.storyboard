@@ -258,6 +258,7 @@
                                     </constraint>
                                 </constraints>
                                 <state key="normal" title="Confirm Payment">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -396,7 +397,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                             </constraint>
                             <constraint firstItem="C8o-dH-VAC" firstAttribute="top" secondItem="LrS-Te-5CH" secondAttribute="bottom" constant="136" id="Zrp-4W-SK3">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                             </constraint>
                             <constraint firstItem="Ool-iZ-Xpj" firstAttribute="leading" secondItem="EWD-9o-V1L" secondAttribute="leading" constant="30" id="bkk-k0-reK"/>
                             <constraint firstItem="5iv-rW-yAl" firstAttribute="leading" secondItem="BcI-lD-ojJ" secondAttribute="trailing" constant="59" id="d0l-oZ-U7D">
@@ -489,10 +490,17 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment Detail" id="7xc-EL-bUh"/>
+                    <navigationItem key="navigationItem" title="Payment Detail" id="7xc-EL-bUh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Rx2-YR-NlK">
+                            <connections>
+                                <action selector="cancelPressed:" destination="uLE-db-dXg" id="b7e-oN-ubV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountLabel" destination="VeP-10-zai" id="wyc-Od-9w7"/>
-                        <outlet property="descriptionLAbel" destination="NCB-bJ-WbU" id="7b2-FC-oFe"/>
+                        <outlet property="cancelButton" destination="Rx2-YR-NlK" id="lY1-ul-2s9"/>
+                        <outlet property="confirmButton" destination="LrS-Te-5CH" id="s0g-te-5py"/>
                         <outlet property="descriptionLabel" destination="NCB-bJ-WbU" id="Xdg-q2-swT"/>
                         <outlet property="titleLabel" destination="4T4-dg-RIe" id="Y6F-Cj-bxk"/>
                         <outlet property="usernameLabel" destination="5iv-rW-yAl" id="nP4-v3-I1l"/>
