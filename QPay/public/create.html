@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    
-    <title>Qpay form</title>
+	
+    <title>QPay Create Event</title>
 
     <!-- Bootstrap -->
    
@@ -15,49 +15,51 @@
   </head>
 
   <style type="text/css">
-    body{
-      margin-left: 10px;
-      margin-top: 20px;
-    }
+  	body{
+/*    	width:60%;*/
+    	margin-left:20px;
+    	margin-right:20px;
+		margin-top:20px;
+   	}
+	.center_div{
+	    margin: 0 auto;
+	    width:80% /* value of your choice which suits your alignment */
+	}
   </style>
 
   <script type="text/javascript">
 
-  $(document).ready(function(){
-    $("button").click(function (e){
-      e.preventDefault();
-      $.ajax({
-        url: "https://api.parse.com/1/functions/create",
-        type: 'POST',
-        headers:{"X-Parse-Application-Id": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc", "X-Parse-REST-API-Key": "xcWVe8K7Q9fpiybqkK52uOiYJ24SlwedCgyTPJsN"},
-        data: {
-          title: document.getElementById('title').value, 
-          description: document.getElementById('description').value,
-          amount: document.getElementById('amount').value,
-          username: document.getElementById('username').value,
-          email: document.getElementById('email').value,
-          password: document.getElementById('password').value
-        },
-        success: function(data){
-          console.log(JSON.stringify(data));      
-          window.location.replace("qrcode.html"); 
-        }
-      })
-      .done(function(msg){
-        
-      })
-      .fail(function(msg){
-        alert('form was not');
-      });
-      e.preventDefault();
+function submitClicked(){
+	console.log("submit clicked");
+    $.ajax({
+      url: "https://api.parse.com/1/functions/create",
+      type: 'POST',
+      headers:{"X-Parse-Application-Id": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc", "X-Parse-REST-API-Key": "xcWVe8K7Q9fpiybqkK52uOiYJ24SlwedCgyTPJsN"},
+      data: {
+        title: document.getElementById('title').value, 
+        description: document.getElementById('description').value,
+        amount: document.getElementById('amount').value,
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      },
+      success: function(data){
+        console.log(JSON.stringify(data));      
+        window.location.replace("item.html"); 
+      }
+    })
+    .done(function(msg){
+      
+    })
+    .fail(function(msg){
+      alert('form was not');
     });
-  });
-
+}
 
   </script>
 
   <body>
-    <h1>Qpay Form</h1>
+    <h1 class="center_div">QPay Create Event</h1>
 <!--
     <h1>Qpay Form</h1>
     <ul>
@@ -69,18 +71,69 @@
       <li>password to retrieve</li> 
     </ul>
 -->
+	<div class="container center_div">
+	    <hr>
+	    <div class="row center_div">
+	        <div class="col-md-6 center_div">
+	            <div class="form-group">
+	                <label>Event Title</label>
+	                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+	                    <input type="text" class="form-control" name="" id="title" placeholder="event title" required>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label>Event Description</label>
+	                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+	                    <textarea id="description" class="form-control" rows="3" placeholder="event description"></textarea>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label>Amount (in dollars)</label>
+	                <div class="input-group"> <span class="input-group-addon money"><span class="glyphicon-money">$</span></span>
+	                    <input type="text" class="form-control" name="" id="amount" placeholder="amount in dollars" required>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label>Venmo Username</label>
+	                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+	                    <input type="text" class="form-control" name="" id="username" placeholder="username" required>
+	                </div>
+	            </div>
+	            
+	            <div class="form-group">
+	                <label>Email</label>
+	                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+	                    <input type="text" class="form-control" name="" id="email" placeholder="email" required>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label>Password</label>
+	                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+	                    <input type="text" class="form-control" name="password" id="password" placeholder="Password" required data-toggle="popover" title="Password Strength" data-content="Enter Password...">
+	                </div>
+	            </div>
 
-    <form action="" method="post">
+	            <!--<div class="form-group">
+	                <label>Confirm Password</label>
+	                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-resize-vertical"></span></span>
+	                    <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm Password" required>
+	                </div>
+	            </div> -->
+	            <input type="submit" name="button" id="button" value="Submit" class="btn btn-primary pull-right" onclick="submitClicked()">
+	        </div>
+	    </div>
+	</div>
 
+    <!-- <form action="" method="post">
       Title: <input type="text" id="title"><br>
       Email: <input type="text" id="email"><br>
       Username: <input type="text" id="username"><br>
       Payment Description: <br><textarea rows="5" cols="50" id="description"></textarea><br>
-      Amount: <input type="number" id="amount"><br> 
+      Amount: <input type="number" id="amount"><br>
       Password: <input type="text" id="password"><br>
       <button name="button" id="button">Submit</button>
 
-    </form>
+    </form> -->
       
     </div>
 
