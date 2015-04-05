@@ -42,7 +42,8 @@ class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func pay(sender: AnyObject) {
-        var message = "Are you sure you want to pay " + self.itemUserName + " $" + String(self.itemAmount) + "?";
+        var amount = self.amountLabel.text!;
+        var message = "Are you sure you want to pay \(amount) to \(self.itemUserName)?";
         var confirmationAlert = UIAlertController(title: "Confirm Payment", message: message, preferredStyle: UIAlertControllerStyle.Alert);
         
         confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:nil));
