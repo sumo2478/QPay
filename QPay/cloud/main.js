@@ -11,10 +11,15 @@ Parse.Cloud.define("create", function(request, response) {
 	var Item = Parse.Object.extend("items");
 	var newItem = new Item();
 
+	var formattedUsername = username;
+	if (username.charAt(0) == '@') {
+		formattedUsername = formattedUsername.substr(1);
+	}
+
 	newItem.set("title", title);
 	newItem.set("description", description);
 	newItem.set("amount", Number(amount));
-	newItem.set("vusername", username);
+	newItem.set("vusername", formattedUsername);
 	newItem.set("email", email);
 	newItem.set("password", password);
 
