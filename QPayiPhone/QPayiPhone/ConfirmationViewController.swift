@@ -42,7 +42,8 @@ class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func pay(sender: AnyObject) {
-        var message = "Are you sure you want to pay " + self.itemUserName + " $" + String(self.itemAmount) + "?";
+        var amount = self.amountLabel.text!;
+        var message = "Are you sure you want to pay \(amount) to \(self.itemUserName)?";
         var confirmationAlert = UIAlertController(title: "Confirm Payment", message: message, preferredStyle: UIAlertControllerStyle.Alert);
         
         confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:nil));
@@ -75,9 +76,12 @@ class ConfirmationViewController: UIViewController {
                 print("There was an error saving your payment");
             }
         }
+
+        var username = Venmo.sharedInstance().session.user.username;
+        var name = Venmo.sharedInstance().session.user.displayName;
         
         let PaymentObject = PaymentModel();
-        PaymentObject.recordPaymentInParse(self.itemId, username: self.itemUserName, completionHandler: completionHandler);
+        PaymentObject.recordPaymentInParse(self.itemId, username: username, name: name, completionHandler: completionHandler);
     }
     
     @IBAction func cancelPressed(sender: AnyObject) {

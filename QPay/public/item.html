@@ -1,46 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		<title> Item Page </title>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="js/helper.js"></script>
 
-		<title> QR Code </title>
-
-		<!-- Bootstrap -->
-		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">		
 	</head>
-
-	<script type="text/javascript">
-
-	$(document).ready(function(){
-		console.log("hello");
-		$.ajax({
-			url: " https://api.parse.com/1/functions/retrieve",
-			type: 'POST',
-			headers:{"X-Parse-Application-Id": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc", "X-Parse-REST-API-Key": "xcWVe8K7Q9fpiybqkK52uOiYJ24SlwedCgyTPJsN"},
-			data:{
-				id: "81igU2o6jz"
-			},
-			success: function(data){
-				console.log(JSON.stringify(data));
-				console.log("length: " + data.result.payments.length);    	       
-			}
-		});
-
-	});
-
-	function addRow(){
-		var table = document.getElementById("usernameTable");
-		for
-		var row = table.insertRow(-1);
-		var cell = row.insertCell(-1);
-		// cell.innerHTML = payments[index];
-	}
-	
-
-	</script>
 
 	<style>
 		body{
@@ -52,22 +21,62 @@
 	</style>
 
 
-	<body>
-	
-		<img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl" + 81igU2o6jz>
+	<body>	
+		<div ng-app="QPay" ng-controller="myCtrl">
+			<h1>{{ title }}</h1>
+			<h3>Description: {{ description }}</h3>
+			<h3>Amount: {{ amount }}</h3>
+			<h3>Venmo Username To Send To: {{ username }}</h3>
+			<h3>Email Contact: {{ email }}</h3>
 
-		<br>
-
-		<table id="usernameTable">
-			<thead>
+			<table>
 				<tr>
-					<th> Username
-				</tr>	
-			</thead>	
-		</table>
+					<th>Username</th>
+					<th>Full Name</th>
+				</tr>
+				<tr ng-repeat="x in payments">				
+					<td>{{ x.vusername }}</td>
+					<td>{{ x.name }}</td>
+				</tr>
+			</table>
 
-		<button onclick="addRow()"> Add Row </button>
+			<img src="{{ qrCode }}">
+		</div>
 
 	</body>
+
+	<script type="text/javascript">
+		var app = angular.module('QPay', []);
+		app.controller('myCtrl', function($scope, $http) {
+			var params = getSearchParameters();
+			var itemId = params.code;
+
+			var req = {
+				method: 'POST',
+				url: 'https://api.parse.com/1/functions/retrieve',
+				headers: {
+					"X-Parse-Application-Id": "X8Un7SuZ4L9O23ouSltZGMyldLlzRQxqxtbZVVLc",
+					"X-Parse-REST-API-Key": "xcWVe8K7Q9fpiybqkK52uOiYJ24SlwedCgyTPJsN"
+				},
+				data: {
+					id: itemId
+				}
+			}			
+
+			$http(req).success(function(data, status, headers, config) {				
+				$scope.title = data.result.item.title;
+				$scope.description = data.result.item.description;
+				$scope.amount = data.result.item.amount;
+				$scope.username = data.result.item.vusername;
+				$scope.email = data.result.item.email;
+				$scope.payments = data.result.payments;
+				$scope.qrCode = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" + itemId;
+			})
+			.error(function() {
+				console.log("There was an error processing the request");
+			});		
+		});
+	
+	</script>	
 
 </html>
