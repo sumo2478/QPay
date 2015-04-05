@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     
     @IBAction func buttonPressed(sender: AnyObject) {
         if (self.isLoggedIn) {
-            performSegueWithIdentifier("segueToScanner", sender: nil);
+            self.performSegueWithIdentifier("segueToScanner", sender: nil);
         } else {
             Venmo.sharedInstance().requestPermissions(["make_payments", "access_profile"], withCompletionHandler: { (var success, var error) -> Void in
                 if (success) {
@@ -51,6 +51,7 @@ class MainViewController: UIViewController {
                 } else {
                     var alert = UIAlertController(title: "Authorization failed", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil));
+                    self.presentViewController(alert, animated: true, completion: nil);
                     println(error);
                 }
             });

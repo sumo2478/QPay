@@ -14,6 +14,8 @@ class ConfirmationViewController: UIViewController {
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var confirmButton: UIButton!
+    @IBOutlet var cancelButton: UIBarButtonItem!
     
     var itemId:String = "";
     var itemTitle:String = "";
@@ -26,10 +28,40 @@ class ConfirmationViewController: UIViewController {
         print("Amount: \(itemAmount)\n");
         print("Description: \(itemDescription)\n");
         print("Username: \(itemUserName)\n");
+        
+        self.titleLabel.text = self.itemTitle;
+        self.usernameLabel.text = self.itemUserName;
+        self.amountLabel.text = NSString(format: "$%.2f", Float(self.itemAmount)/100.0);
+        self.descriptionLabel.text = self.itemDescription;
+        
+        self.confirmButton.layer.borderWidth = 1.0;
+        self.confirmButton.layer.cornerRadius = 4.0;
+        
+        Venmo.sharedInstance().defaultTransactionMethod = VENTransactionMethod.API;
     }
     
     @IBAction func pay(sender: AnyObject) {
-        recordPayment();
+        var message = "Are you sure you want to pay " + self.itemUserName + " $" + String(self.itemAmount) + "?";
+        var confirmationAlert = UIAlertController(title: "Confirm Payment", message: message, preferredStyle: UIAlertControllerStyle.Alert);
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:nil));
+        
+        confirmationAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            self.payWithVenmoAPI();
+        }));
+        
+        presentViewController(confirmationAlert, animated: true, completion: nil);
+    }
+    
+    func payWithVenmoAPI() -> Void {
+        Venmo.sharedInstance().sendPaymentTo(self.itemUserName, amount: self.itemAmount, note: self.itemTitle + " - " + self.itemDescription, audience: VENTransactionAudience.Public) { (transaction, success, error) -> Void in
+            if (success) {
+                println("payment success");
+                self.recordPayment();
+            } else {
+                println("Error: " + error.localizedDescription);
+            }
+        }
     }
     
     func recordPayment() -> Void {
@@ -45,5 +77,9 @@ class ConfirmationViewController: UIViewController {
         
         let PaymentObject = PaymentModel();
         PaymentObject.recordPaymentInParse(self.itemId, username: self.itemUserName, completionHandler: completionHandler);
+    }
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true);
     }
 }
