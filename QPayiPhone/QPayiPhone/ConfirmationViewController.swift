@@ -24,7 +24,7 @@ class ConfirmationViewController: UIViewController, UITableViewDataSource, UITab
     var itemId:String = "";
     var itemTitle:String = "";
     var itemDescription:String = "";
-    var itemAmount:UInt = 0;
+    var itemAmount:Int = 0;
     var itemUserName:String = "";
     var formattedAmount:String = "";
     
@@ -114,7 +114,7 @@ class ConfirmationViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func payWithVenmoAPI() -> Void {
-        Venmo.sharedInstance().sendPaymentTo(self.itemUserName, amount: self.itemAmount, note: self.itemTitle + " - " + self.itemDescription, audience: VENTransactionAudience.Public) { (transaction, success, error) -> Void in
+        Venmo.sharedInstance().sendPaymentTo(self.itemUserName, amount: UInt(self.itemAmount), note: self.itemTitle + " - " + self.itemDescription, audience: VENTransactionAudience.Public) { (transaction, success, error) -> Void in
             if (success) {
                 println("payment success");
                 self.recordPayment();
