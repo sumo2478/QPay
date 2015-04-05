@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     @IBOutlet var button: UIButton!
     @IBOutlet var userName: UILabel!
     @IBOutlet var logoutButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var buttonWidth: NSLayoutConstraint!
     
     var isLoggedIn = false;
 
@@ -26,9 +28,9 @@ class MainViewController: UIViewController {
         bar.shadowImage = UIImage();
         bar.backgroundColor = UIColor.clearColor();
         
-        self.button.layer.borderColor = UIColor.darkGrayColor().CGColor;
-        self.button.layer.borderWidth = 1.0;
-        self.button.layer.cornerRadius = 4.0;
+        self.button.layer.borderColor = UIColor.whiteColor().CGColor;
+        self.button.layer.borderWidth = 2.0;
+        self.button.layer.cornerRadius = 8.0;
         
         if (Venmo.sharedInstance().isSessionValid()) {
             self.setUIforLoggedIn();
@@ -59,12 +61,14 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func logoutPressed(sender: AnyObject) {
+        Venmo.sharedInstance().logout();
         self.setUIforLoggedOut();
     }
     
     func setUIforLoggedIn() {
         self.isLoggedIn = true;
         self.button.setTitle("Scan QR Code", forState: UIControlState.Normal);
+        self.buttonWidth.constant = 150;
         var username = Venmo.sharedInstance().session.user.displayName;
         self.userName.text = "Logged in as " + username;
         self.userName.hidden = false;
@@ -74,6 +78,7 @@ class MainViewController: UIViewController {
     func setUIforLoggedOut() {
         self.isLoggedIn = false;
         self.button.setTitle("Login with Venmo", forState: UIControlState.Normal);
+        self.buttonWidth.constant = 180;
         self.userName.hidden = true;
         self.logoutButton.hidden = true;
     }
