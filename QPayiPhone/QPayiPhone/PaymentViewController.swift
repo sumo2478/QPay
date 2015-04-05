@@ -14,6 +14,8 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var itemObject:PFObject?;
     var itemId: String?;
     
+    @IBOutlet var QRBoxView: UIImageView!
+    
     override func viewWillAppear(animated: Bool) {
         self.receivedData = false;
         self.itemObject = nil;
@@ -40,6 +42,12 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         previewLayer.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
         
         self.view.layer.addSublayer(previewLayer)
+        
+        let QRBoxView = UIImageView(image: UIImage(named: "QRBox"));
+        QRBoxView.frame = CGRect(x: UIScreen.mainScreen().bounds.width/2, y: UIScreen.mainScreen().bounds.height/2, width: 300, height: 300);
+        QRBoxView.center = CGPoint(x: UIScreen.mainScreen().bounds.width/2, y: UIScreen.mainScreen().bounds.height/2);
+        self.view.addSubview(QRBoxView);
+        
         session.startRunning()
     }
     
@@ -55,10 +63,15 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                             (itemObject:PFObject!, error:NSError!) -> Void in
                             if error == nil {
                                 self.itemObject = itemObject;
-                                
                                 self.performSegueWithIdentifier("segueToPaymentDetail", sender: nil);
-                            }
-                            else {
+                            } else {
+                                var alert = UIAlertController(title: "Scanning failed", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert);
+                                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in
+                                    self.navigationController?.popToRootViewControllerAnimated(true);
+                                    return;
+                                }));
+                                self.presentViewController(alert, animated: true, completion: nil);
+                                
                                 print("Error: " + error.localizedDescription);
                             }
                         }

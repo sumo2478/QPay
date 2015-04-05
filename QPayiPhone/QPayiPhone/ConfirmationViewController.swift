@@ -34,6 +34,7 @@ class ConfirmationViewController: UIViewController {
         self.amountLabel.text = NSString(format: "$%.2f", Float(self.itemAmount)/100.0);
         self.descriptionLabel.text = self.itemDescription;
         
+        self.confirmButton.layer.borderColor = UIColor(red: 58, green: 173, blue: 255, alpha: 1).CGColor;
         self.confirmButton.layer.borderWidth = 1.0;
         self.confirmButton.layer.cornerRadius = 4.0;
         
