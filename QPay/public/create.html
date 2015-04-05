@@ -20,7 +20,12 @@
    	}
 	.center_div{
 	    margin: 0 auto;
-	    width:80% /* value of your choice which suits your alignment */
+	    width:80%; /* value of your choice which suits your alignment */
+	    float:center;
+	}
+
+	.center_header {
+		text-align:center;
 	}
   </style>
 
@@ -40,9 +45,10 @@ function submitClicked(){
         email: document.getElementById('email').value,
         password: document.getElementById('password').value
       },
-      success: function(data){
+      success: function(data){      	
         console.log(JSON.stringify(data));   
-        window.location.replace("item.html");
+        var urlToRedirectTo = "item.html?code=" + data.result;
+        window.location.replace(urlToRedirectTo);
       }
     })
     .done(function(msg){
@@ -55,10 +61,9 @@ function submitClicked(){
 
   </script>
 
-  <body>
-    <h1 class="center_div">QPay Create Event</h1>
-
+  <body>    
 	<div class="container center_div">
+		<h1 class="center_header">QPay Create Event</h1>
 	    <hr>
 	    <div class="row center_div">
 	        <div class="col-md-6 center_div">
@@ -98,22 +103,13 @@ function submitClicked(){
 	                    <input type="text" class="form-control" name="password" id="password" placeholder="Password" required data-toggle="popover" title="Password Strength" data-content="Enter Password...">
 	                </div>
 	            </div>
-
-	            <input type="submit" name="button" id="button" value="Submit" class="btn btn-primary pull-right" onclick="submitClicked()">
+	            <div class="form-group">
+	            	<button name="button" id="button" class="btn btn-primary" onclick="submitClicked()">Submit</button>
+	            </div>	            
 	        </div>
 	    </div>
 	</div>
 
-    <!-- <form action="" method="post">
-      Title: <input type="text" id="title"><br>
-      Email: <input type="text" id="email"><br>
-      Username: <input type="text" id="username"><br>
-      Payment Description: <br><textarea rows="5" cols="50" id="description"></textarea><br>
-      Amount: <input type="number" id="amount"><br>
-      Password: <input type="text" id="password"><br>
-      <button name="button" id="button">Submit</button>
-
-    </form> -->
 		
     </div>
 	
